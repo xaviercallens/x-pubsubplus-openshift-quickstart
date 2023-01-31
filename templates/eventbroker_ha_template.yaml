@@ -822,7 +822,7 @@ parameters:
     description: The prefix to use for object names
     generate: expression
     from: '[A-Z0-9]{8}'
-    value: example
+    value: xaviercallens-dev
     required: true
   - name: BROKER_IMAGE_REGISTRY_URL
     displayName: Image Registry URL
@@ -842,11 +842,12 @@ parameters:
   - name: BROKER_ADMIN_PASSWORD
     displayName: Base64 encoded password for PubSub+ username 'admin'
     description: The Event Broker 'admin' user's password (base64 encoded).  This PubSub+ OpenShift template will create an administrative user with username 'admin' with specified password.
+    value: Am1deus@8132134
     required: true
   - name: BROKER_STORAGE_SIZE
     displayName: PubSub+ Event Broker Persistent Storage Disk Size
     description: The size in gigabytes for a Event Broker Pod's persistent volume (with suffix 'Gi'), example 30Gi for 30 gigabytes
-    value: 30Gi
+    value: 10Gi
     required: true
   # Uncomment if using TLS configuration
   # - name: BROKER_TLS_CERT_SECRET
