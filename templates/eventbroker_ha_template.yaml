@@ -810,7 +810,7 @@ objects:
       spec:
         # Uncomment if using provider-specific StorageClass
         # Also uncomment StorageClass definition above
-        # storageClassName: "${DEPLOYMENT_NAME}-standard"
+        storageClassName: "gp2" #gp2 ${DEPLOYMENT_NAME}-standard
         accessModes: [ "ReadWriteOnce" ]
         resources:
           requests:
@@ -847,7 +847,7 @@ parameters:
   - name: BROKER_STORAGE_SIZE
     displayName: PubSub+ Event Broker Persistent Storage Disk Size
     description: The size in gigabytes for a Event Broker Pod's persistent volume (with suffix 'Gi'), example 30Gi for 30 gigabytes
-    value: 10Gi
+    value: 5Gi
     required: true
   # Uncomment if using TLS configuration
   # - name: BROKER_TLS_CERT_SECRET
