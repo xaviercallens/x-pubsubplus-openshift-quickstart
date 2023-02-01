@@ -658,11 +658,11 @@ objects:
           imagePullPolicy: IfNotPresent
           resources:
             requests:
-              cpu: "2"
-              memory: 4025Mi
+              cpu: "1"
+              memory: 2025Mi
             limits:
-              cpu: "2"
-              memory: 4025Mi
+              cpu: "1"
+              memory: 2025Mi
           livenessProbe:
             tcpSocket:
               port: 8080
@@ -814,7 +814,7 @@ objects:
         accessModes: [ "ReadWriteOnce" ]
         resources:
           requests:
-            storage: "${BROKER_STORAGE_SIZE}"
+            storage: "3Gi"
 
 parameters:
   - name: DEPLOYMENT_NAME
@@ -847,7 +847,7 @@ parameters:
   - name: BROKER_STORAGE_SIZE
     displayName: PubSub+ Event Broker Persistent Storage Disk Size
     description: The size in gigabytes for a Event Broker Pod's persistent volume (with suffix 'Gi'), example 30Gi for 30 gigabytes
-    value: 5Gi
+    value: 3Gi
     required: true
   # Uncomment if using TLS configuration
   # - name: BROKER_TLS_CERT_SECRET
