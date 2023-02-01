@@ -1,5 +1,5 @@
 ---
-apiVersion: v1
+apiVersion: template.openshift.io/v1
 kind: Template
 metadata:
   name: pubsubplus-eventbroker-singlenode-template
@@ -525,7 +525,7 @@ objects:
       spec:
         # Uncomment if using provider-specific StorageClass
         # Also uncomment StorageClass definition above
-        # storageClassName: "${DEPLOYMENT_NAME}-standard"
+        storageClassName: "gp2"
         accessModes: [ "ReadWriteOnce" ]
         resources:
           requests:
@@ -537,7 +537,7 @@ parameters:
     description: The prefix to use for object names
     generate: expression
     from: '[A-Z0-9]{8}'
-    value: example
+    value: sol-eventbroker
     required: true
   - name: BROKER_IMAGE_REGISTRY_URL
     displayName: Image Registry URL
@@ -561,7 +561,7 @@ parameters:
   - name: BROKER_STORAGE_SIZE
     displayName: PubSub+ Event Broker Persistent Storage Disk Size
     description: The size in gigabytes for a Event Broker Pod's persistent volume (with suffix 'Gi'), example 30Gi for 30 gigabytes
-    value: 30Gi
+    value: 3Gi
     required: true
   # Uncomment if using TLS configuration
   # - name: BROKER_TLS_CERT_SECRET
