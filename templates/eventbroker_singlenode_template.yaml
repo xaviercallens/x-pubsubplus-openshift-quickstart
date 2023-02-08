@@ -501,7 +501,7 @@ objects:
       spec:
         # Uncomment if using provider-specific StorageClass
         # Also uncomment StorageClass definition above
-        storageClassName: "gp2"
+        #storageClassName: "gp2"
         accessModes: [ "ReadWriteOnce" ]
         resources:
           requests:
