@@ -317,6 +317,16 @@ objects:
       app.kubernetes.io/instance: "${DEPLOYMENT_NAME}"
       active: "true"
 
+- kind: Route
+  apiVersion: v1
+  metadata:
+    name: solace-external-route
+  spec:
+    host: solace-bus.apps.dev01.cdf.amadeus.net
+    to:
+      kind: Service
+      name: "${DEPLOYMENT_NAME}-pubsubplus"
+
 - kind: StatefulSet
   apiVersion: apps/v1
   metadata:
