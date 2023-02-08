@@ -624,7 +624,9 @@ objects:
       app.kubernetes.io/name: pubsubplus
       app.kubernetes.io/instance: "${DEPLOYMENT_NAME}"
       active: "true"
+
 - kind: Route
+  apiVersion: v1
   metadata:
     name: solace-external-route
     spec:
