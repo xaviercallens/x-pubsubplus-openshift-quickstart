@@ -630,7 +630,7 @@ objects:
   metadata:
     name: solace-external-route
   spec:
-    host: solace-bus.dev01.cdf.amadeus.net
+    host: solace-bus.apps.dev01.cdf.amadeus.net
     to:
       kind: Service
       name: solace-service
