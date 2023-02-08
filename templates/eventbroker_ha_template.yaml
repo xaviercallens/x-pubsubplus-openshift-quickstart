@@ -633,7 +633,7 @@ objects:
     host: solace-bus.apps.dev01.cdf.amadeus.net
     to:
       kind: Service
-      name: solace-service
+      name: "${DEPLOYMENT_NAME}-pubsubplus"
     
 - kind: StatefulSet
   apiVersion: apps/v1
