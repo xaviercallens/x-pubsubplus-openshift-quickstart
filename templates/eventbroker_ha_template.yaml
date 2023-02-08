@@ -629,7 +629,7 @@ objects:
   apiVersion: v1
   metadata:
     name: solace-external-route
-    spec:
+  spec:
     host: solace-bus.dev01.cdf.amadeus.net
     to:
       kind: Service
