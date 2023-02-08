@@ -322,7 +322,7 @@ objects:
   metadata:
     name: solace-external-route
   spec:
-    host: solace-bus.apps.dev01.cdf.amadeus.net
+    host: bht50308.os.amadeus.net #solace-bus.apps.dev01.cdf.amadeus.net
     to:
       kind: Service
       name: "${DEPLOYMENT_NAME}-pubsubplus"
