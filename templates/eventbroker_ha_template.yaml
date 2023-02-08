@@ -832,7 +832,7 @@ parameters:
     description: The prefix to use for object names
     generate: expression
     from: '[A-Z0-9]{8}'
-    value: sol-eventbroker-tstha
+    value: gem-tstha-broker
     required: true
   - name: BROKER_IMAGE_REGISTRY_URL
     displayName: Image Registry URL
@@ -852,7 +852,7 @@ parameters:
   - name: BROKER_ADMIN_PASSWORD
     displayName: Base64 encoded password for PubSub+ username 'admin'
     description: The Event Broker 'admin' user's password (base64 encoded).  This PubSub+ OpenShift template will create an administrative user with username 'admin' with specified password.
-    value: Am1deus@358
+    value: c3Ryb25nQGRtaW5QdyE= # Encoded
     required: true
   - name: BROKER_STORAGE_SIZE
     displayName: PubSub+ Event Broker Persistent Storage Disk Size
