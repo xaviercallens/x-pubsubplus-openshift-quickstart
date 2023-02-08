@@ -666,11 +666,11 @@ objects:
           imagePullPolicy: IfNotPresent
           resources:
             requests:
-              cpu: "1"
-              memory: 2025Mi
+              cpu: "4"
+              memory: 8000Mi
             limits:
-              cpu: "1"
-              memory: 2025Mi
+              cpu: "4"
+              memory: 8000Mi
           livenessProbe:
             tcpSocket:
               port: 8080
@@ -818,11 +818,11 @@ objects:
       spec:
         # Uncomment if using provider-specific StorageClass
         # Also uncomment StorageClass definition above
-        storageClassName: "gp2" #gp2 ${DEPLOYMENT_NAME}-standard
+        #storageClassName: "gp2" #gp2 ${DEPLOYMENT_NAME}-standard
         accessModes: [ "ReadWriteOnce" ]
         resources:
           requests:
-            storage: "3Gi"
+            storage: "30Gi"
 
 parameters:
   - name: DEPLOYMENT_NAME
@@ -830,12 +830,12 @@ parameters:
     description: The prefix to use for object names
     generate: expression
     from: '[A-Z0-9]{8}'
-    value: xaviercallens-dev
+    value: sol-eventbroker-tstha
     required: true
   - name: BROKER_IMAGE_REGISTRY_URL
     displayName: Image Registry URL
     description: The image registry URL for the registry containing the PubSub+ Event Broker docker image
-    value: registry.connect.redhat.com/solace/pubsubplus-standard
+    value: dockerhub.rnd.amadeus.net:5000/solace/pubsubplus-standard #registry.connect.redhat.com/solace/pubsubplus-standard
     required: true
   - name: BROKER_IMAGE_REGISTRY_PULLSECRET
     displayName: Image Registry Pull Secret
@@ -850,12 +850,12 @@ parameters:
   - name: BROKER_ADMIN_PASSWORD
     displayName: Base64 encoded password for PubSub+ username 'admin'
     description: The Event Broker 'admin' user's password (base64 encoded).  This PubSub+ OpenShift template will create an administrative user with username 'admin' with specified password.
-    value: Am1deus@8132134
+    value: Am1deus@358
     required: true
   - name: BROKER_STORAGE_SIZE
     displayName: PubSub+ Event Broker Persistent Storage Disk Size
     description: The size in gigabytes for a Event Broker Pod's persistent volume (with suffix 'Gi'), example 30Gi for 30 gigabytes
-    value: 3Gi
+    value: 30Gi
     required: true
   # Uncomment if using TLS configuration
   # - name: BROKER_TLS_CERT_SECRET
