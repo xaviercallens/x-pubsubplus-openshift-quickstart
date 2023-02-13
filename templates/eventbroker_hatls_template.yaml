@@ -876,7 +876,7 @@ parameters:
   - name: BROKER_IMAGE_REGISTRY_URL
     displayName: Image Registry URL
     description: The image registry URL for the registry containing the PubSub+ Event Broker docker image
-    value: dockerhub.rnd.amadeus.net:5000/solace/pubsubplus-standard #registry.connect.redhat.com/solace/pubsubplus-standard
+    value: dockerhub.rnd.amadeus.net:5000/solace/solace-pubsub-enterprise #registry.connect.redhat.com/solace/pubsubplus-standard #dockerhub.rnd.amadeus.net:5000/solace/solace-pubsub-enterprise:10.2.1.32
     required: true
   - name: BROKER_IMAGE_REGISTRY_PULLSECRET
     displayName: Image Registry Pull Secret
@@ -886,7 +886,7 @@ parameters:
   - name: BROKER_IMAGE_TAG
     displayName: PubSub+ Event Broker Docker Image Tag
     description: The Docker image tag for the PubSub+ Event Broker docker image from your Docker registry
-    value: latest
+    value: 10.2.1
     required: true
   - name: BROKER_ADMIN_PASSWORD
     displayName: Base64 encoded password for PubSub+ username 'admin'
