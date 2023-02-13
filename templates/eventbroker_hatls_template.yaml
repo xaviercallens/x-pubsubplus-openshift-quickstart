@@ -886,7 +886,7 @@ parameters:
   - name: BROKER_IMAGE_TAG
     displayName: PubSub+ Event Broker Docker Image Tag
     description: The Docker image tag for the PubSub+ Event Broker docker image from your Docker registry
-    value: 10.2.1
+    value: 10.2.1.32
     required: true
   - name: BROKER_ADMIN_PASSWORD
     displayName: Base64 encoded password for PubSub+ username 'admin'
