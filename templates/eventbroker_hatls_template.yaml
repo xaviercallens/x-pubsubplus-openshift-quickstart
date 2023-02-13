@@ -632,11 +632,11 @@ objects:
   spec:
     host: solace-bus-tstha.apps.dev01.cdf.amadeus.net
     port:
-      targetPort:tcp-semp
+      targetPort: tcp-semp #tcp-semp
     to:
       kind: Service
       name: "${DEPLOYMENT_NAME}-pubsubplus"
-
+#
 #- kind: Route
 #  apiVersion: v1
 #  metadata:
@@ -648,8 +648,7 @@ objects:
 #    to:
 #      kind: Service
 #      name: "${DEPLOYMENT_NAME}-pubsubplus"
-      
-      
+
 - kind: StatefulSet
   apiVersion: apps/v1
   metadata:
