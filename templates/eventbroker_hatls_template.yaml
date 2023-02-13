@@ -596,30 +596,6 @@ objects:
 #      targetPort: 9443
 #      protocol: TCP
 #      name: tls-rest
-    - port: 5672
-      targetPort: 5672
-      protocol: TCP
-      name: tcp-amqp
-    - port: 5671
-      targetPort: 5671
-      protocol: TCP
-      name: tls-amqp
-    - port: 1883
-      targetPort: 1883
-      protocol: TCP
-      name: tcp-mqtt
-    - port: 8883
-      targetPort: 8883
-      protocol: TCP
-      name: tls-mqtt
-    - port: 8000
-      targetPort: 8000
-      protocol: TCP
-      name: tcp-mqttweb
-    - port: 8443
-      targetPort: 8443
-      protocol: TCP
-      name: tls-mqttweb
     selector:
       app.kubernetes.io/name: pubsubplus
       app.kubernetes.io/instance: "${DEPLOYMENT_NAME}"
@@ -649,6 +625,55 @@ objects:
       kind: Service
       name: "${DEPLOYMENT_NAME}-pubsubplus"
 
+- kind: Route
+  apiVersion: v1
+  metadata:
+    name: solace-external-route-web
+  spec:
+    host: solace-bus-tsthatls-web.apps.dev01.cdf.amadeus.net
+    port:
+      targetPort: tcp-web
+    to:
+      kind: Service
+      name: "${DEPLOYMENT_NAME}-pubsubplus"
+#smfcomp smfroute
+
+- kind: Route
+  apiVersion: v1
+  metadata:
+    name: solace-external-route-rest
+  spec:
+    host: solace-bus-tsthatls-rest.apps.dev01.cdf.amadeus.net
+    port:
+      targetPort: tcp-rest
+    to:
+      kind: Service
+      name: "${DEPLOYMENT_NAME}-pubsubplus"
+      
+- kind: Route
+  apiVersion: v1
+  metadata:
+    name: solace-external-route-smfroute
+  spec:
+    host: solace-bus-tsthatls-smfroute.apps.dev01.cdf.amadeus.net
+    port:
+      targetPort: tcp-smfroute
+    to:
+      kind: Service
+      name: "${DEPLOYMENT_NAME}-pubsubplus"
+      
+- kind: Route
+  apiVersion: v1
+  metadata:
+    name: solace-external-route-smfcomp
+  spec:
+    host: solace-bus-tsthatls-smfroute.apps.dev01.cdf.amadeus.net
+    port:
+      targetPort: tcp-smfcomp
+    to:
+      kind: Service
+      name: "${DEPLOYMENT_NAME}-pubsubplus"
+      
 - kind: StatefulSet
   apiVersion: apps/v1
   metadata:
