@@ -636,18 +636,18 @@ objects:
     to:
       kind: Service
       name: "${DEPLOYMENT_NAME}-pubsubplus"
-#
-#- kind: Route
-#  apiVersion: v1
-#  metadata:
-#    name: solace-external-route
-#  spec:
-#    host: solace-bus-tsthatls-smf.apps.dev01.cdf.amadeus.net
-#    port:
-#      targetPort:tcp-smf
-#    to:
-#      kind: Service
-#      name: "${DEPLOYMENT_NAME}-pubsubplus"
+
+- kind: Route
+  apiVersion: v1
+  metadata:
+    name: solace-external-route-smf
+  spec:
+    host: solace-bus-tsthatls-smf.apps.dev01.cdf.amadeus.net
+    port:
+      targetPort: tcp-smf
+    to:
+      kind: Service
+      name: "${DEPLOYMENT_NAME}-pubsubplus"
 
 - kind: StatefulSet
   apiVersion: apps/v1
