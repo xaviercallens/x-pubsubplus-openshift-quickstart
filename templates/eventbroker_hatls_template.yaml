@@ -630,9 +630,9 @@ objects:
   metadata:
     name: solace-external-route
   spec:
-    host: solace-bus-tsthatls.apps.dev01.cdf.amadeus.net
-#    port:
-#      targetPort:tcp-semp
+    host: solace-bus-tstha.apps.dev01.cdf.amadeus.net
+    port:
+      targetPort:tcp-semp
     to:
       kind: Service
       name: "${DEPLOYMENT_NAME}-pubsubplus"
