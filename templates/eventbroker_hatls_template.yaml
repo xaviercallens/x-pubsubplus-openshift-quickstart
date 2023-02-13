@@ -560,10 +560,10 @@ objects:
       targetPort: 8080
       protocol: TCP
       name: tcp-semp
-    - port: 1943
-      targetPort: 1943
-      protocol: TCP
-      name: tls-semp
+#    - port: 1943
+#      targetPort: 1943
+#      protocol: TCP
+#      name: tls-semp
     - port: 55555
       targetPort: 55555
       protocol: TCP
@@ -572,10 +572,10 @@ objects:
       targetPort: 55003
       protocol: TCP
       name: tcp-smfcomp
-    - port: 55443
-      targetPort: 55443
-      protocol: TCP
-      name: tls-smf
+#    - port: 55443
+#      targetPort: 55443
+#      protocol: TCP
+#      name: tls-smf
     - port: 55556
       targetPort: 55556
       protocol: TCP
@@ -584,18 +584,18 @@ objects:
       targetPort: 8008
       protocol: TCP
       name: tcp-web
-    - port: 1443
-      targetPort: 1443
-      protocol: TCP
-      name: tls-web
+#    - port: 1443
+#      targetPort: 1443
+#      protocol: TCP
+#      name: tls-web
     - port: 9000
       targetPort: 9000
       protocol: TCP
       name: tcp-rest
-    - port: 9443
-      targetPort: 9443
-      protocol: TCP
-      name: tls-rest
+#    - port: 9443
+#      targetPort: 9443
+#      protocol: TCP
+#      name: tls-rest
     - port: 5672
       targetPort: 5672
       protocol: TCP
@@ -630,11 +630,26 @@ objects:
   metadata:
     name: solace-external-route
   spec:
-    host: solace-bus.apps.dev01.cdf.amadeus.net
+    host: solace-bus-tsthatls.apps.dev01.cdf.amadeus.net
+    port:
+      targetPort:tcp-semp
     to:
       kind: Service
       name: "${DEPLOYMENT_NAME}-pubsubplus"
-    
+
+- kind: Route
+  apiVersion: v1
+  metadata:
+    name: solace-external-route
+  spec:
+    host: solace-bus-tsthatls-smf.apps.dev01.cdf.amadeus.net
+    port:
+      targetPort:tcp-smf
+    to:
+      kind: Service
+      name: "${DEPLOYMENT_NAME}-pubsubplus"
+      
+      
 - kind: StatefulSet
   apiVersion: apps/v1
   metadata:
